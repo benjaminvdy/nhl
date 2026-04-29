@@ -68,3 +68,52 @@ body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var
 .gs2{flex:1;padding:.25rem .4rem;border-right:1px solid var(--bd)}.gs2:last-child{border-right:none}
 .gs2 .sl{font-size:.34rem;text-transform:uppercase;letter-spacing:.5px;color:var(--t3);margin-bottom:1px;font-weight:600}
 .tvt{display:flex;flex-wrap:wrap;gap:1px}
+.tv{font-size:.4rem;padding:1px 3px;border-radius:3px;font-weight:600;white-space:nowrap}
+.tv-u{background:rgba(59,130,246,.06);color:var(--bl);border:1px solid rgba(59,130,246,.08)}
+.tv-c{background:rgba(239,68,68,.06);color:var(--rd);border:1px solid rgba(239,68,68,.08)}
+.tv-f{background:rgba(139,92,246,.06);color:var(--pu);border:1px solid rgba(139,92,246,.08)}
+.rpl{display:flex;flex-direction:column;gap:1px}
+.rp{font-size:.42rem;color:var(--t2);display:flex;align-items:center;gap:.15rem}
+.rp-t{font-weight:700;color:var(--cy);min-width:30px;font-variant-numeric:tabular-nums}
+.tg{font-size:.32rem;padding:0 2px;border-radius:2px;font-weight:700;text-transform:uppercase}
+.tg-i{background:rgba(16,185,129,.07);color:var(--gn)}.tg-c{background:rgba(245,158,11,.07);color:var(--or)}.tg-j{background:rgba(139,92,246,.07);color:var(--pu)}
+.ifn-n{font-size:.5rem;color:var(--t3);padding:.2rem .55rem;font-style:italic;border-top:1px solid var(--bd)}
+.bcg{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:.4rem;margin-top:.5rem}
+.bc{background:var(--c);border:1px solid var(--bd);border-radius:9px;padding:.45rem .55rem}
+.bc h3{font-size:.65rem;font-weight:700;margin-bottom:.2rem}
+.bc ul{list-style:none;display:flex;flex-direction:column;gap:.1rem}
+.bc li{font-size:.56rem;color:var(--t2);padding-left:.5rem;position:relative}
+.bc li::before{content:">";position:absolute;left:0;color:var(--t3);font-weight:700}
+.hl{color:var(--t1);font-weight:600}
+.bc .sub{font-size:.48rem;color:var(--t3);margin-top:.15rem;font-style:italic}
+.ft{text-align:center;padding:.7rem;color:var(--t3);font-size:.46rem;border-top:1px solid var(--bd);margin-top:.8rem}
+.ft a{color:var(--cy);text-decoration:none}
+@keyframes fi{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}.gc,.sp{animation:fi .25s ease-out}
+@media(max-width:700px){.hd-in{flex-direction:column;align-items:flex-start}.clks{width:100%}.ck{flex:1;min-width:0}.mx{padding:.4rem}.g1{flex-direction:column}.gmu{min-width:auto}.gtz{border-left:none;border-top:1px solid var(--bd)}.g2{flex-direction:column}.gs2{border-right:none;border-bottom:1px solid var(--bd)}.gs2:last-child{border-bottom:none}.bcg{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="hd"><div class="hd-in">
+<div class="logo"><span>🏒</span><div><div class="logo-t">NHL Playoffs 2026</div><div class="logo-s">Horaires · TV · Rediffusions</div></div></div>
+<div class="clks"><div class="ck ck-e"><div class="l">Montréal</div><div class="t" id="c1">--:--</div></div><div class="ck ck-p"><div class="l">Paris (+6h)</div><div class="t" id="c2">--:--</div></div></div>
+</div></div>
+<div class="mx">
+<div class="ds"><div class="d"></div><div class="tx">Données du <b>29 avril 2026</b></div></div>
+<div class="info">Paris = <b>+6h</b> vs Montréal. 19h Montréal = <b>1h00 du matin</b> Paris. Rediffusions en heure de Paris.</div>
+
+<div class="sh"><h2>Séries — 1er tour</h2></div>
+<div class="sr">
+<div class="sp mtl"><div class="sp-h"><span class="sp-c">Est</span><span class="sp-s t">2-2</span></div><div class="sp-m"><div class="sp-t"><img src="https://assets.nhle.com/logos/nhl/svg/MTL_light.svg"><div class="sp-a" style="color:#af1e2d">MTL</div><div class="sp-w"><div class="wd on"></div><div class="wd on"></div><div class="wd"></div><div class="wd"></div></div></div><div class="sp-v">vs</div><div class="sp-t"><img src="https://assets.nhle.com/logos/nhl/svg/TBL_light.svg"><div class="sp-a" style="color:#002868">TBL</div><div class="sp-w"><div class="wd on"></div><div class="wd on"></div><div class="wd"></div><div class="wd"></div></div></div></div></div>
+<div class="sp"><div class="sp-h"><span class="sp-c">Est</span><span class="sp-s l">BUF 3-2</span></div><div class="sp-m"><div class="sp-t"><img src="https://assets.nhle.com/logos/nhl/svg/BUF_light.svg"><div class="sp-a" style="color:#003087">BUF</div><div class="sp-w"><div class="wd on"></div><div class="wd on"></div><div class="wd on"></div><div class="wd"></div></div></div><div class="sp-v">vs</div><div class="sp-t"><img src="https://assets.nhle.com/logos/nhl/svg/BOS_light.svg"><div class="sp-a" style="color:#FFB81C">BOS</div><div class="sp-w"><div class="wd on"></div><div class="wd on"></div><div class="wd"></div><div class="wd"></div></div></div></div></div>
+<div class="sp"><div class="sp-h"><span class="sp-c">Est</span><span class="sp-s l">PHI 3-2</span></div><div class="sp-m"><div class="sp-t"><img src="https://assets.nhle.com/logos/nhl/svg/PHI_light.svg"><div class="sp-a" style="color:#F74902">PHI</div><div class="sp-w"><div class="wd on"></div><div class="wd on"></div><div class="wd on"></div><div class="wd"></div></div></div><div class="sp-v">vs</div><div class="sp-t"><img src="https://assets.nhle.com/logos/nhl/svg/PIT_light.svg"><div class="sp-a" style="color:#FCB514">PIT</div><div class="sp-w"><div class="wd on"></div><div class="wd on"></div><div class="wd"></div><div class="wd"></div></div></div></div></div>
+<div class="sp dn"><div class="sp-h"><span class="sp-c">Est</span><span class="sp-s w">CAR 4-0</span></div><div class="sp-m"><div class="sp-t"><img src="https://assets.nhle.com/logos/nhl/svg/CAR_light.svg"><div class="sp-a" style="color:#CE1126">CAR</div><div class="sp-w"><div class="wd on"></div><div class="wd on"></div><div class="wd on"></div><div class="wd on"></div></div></div><div class="sp-v">vs</div><div class="sp-t"><img src="https://assets.nhle.com/logos/nhl/svg/OTT_light.svg"><div class="sp-a" style="color:#C52032">OTT</div><div class="sp-w"><div class="wd"></div><div class="wd"></div><div class="wd"></div><div class="wd"></div></div></div></div></div>
+<div class="sp"><div class="sp-h"><span class="sp-c">Ouest</span><span class="sp-s l">MIN 3-2</span></div><div class="sp-m"><div class="sp-t"><img src="https://assets.nhle.com/logos/nhl/svg/MIN_light.svg"><div class="sp-a" style="color:#154734">MIN</div><div class="sp-w"><div class="wd on"></div><div class="wd on"></div><div class="wd on"></div><div class="wd"></div></div></div><div class="sp-v">vs</div><div class="sp-t"><img src="https://assets.nhle.com/logos/nhl/svg/DAL_light.svg"><div class="sp-a" style="color:#006847">DAL</div><div class="sp-w"><div class="wd on"></div><div class="wd on"></div><div class="wd"></div><div class="wd"></div></div></div></div></div>
+<div class="sp"><div class="sp-h"><span class="sp-c">Ouest</span><span class="sp-s t">2-2</span></div><div class="sp-m"><div class="sp-t"><img src="https://assets.nhle.com/logos/nhl/svg/VGK_light.svg"><div class="sp-a" style="color:#B4975A">VGK</div><div class="sp-w"><div class="wd on"></div><div class="wd on"></div><div class="wd"></div><div class="wd"></div></div></div><div class="sp-v">vs</div><div class="sp-t"><img src="https://assets.nhle.com/logos/nhl/svg/UTA_light.svg"><div class="sp-a" style="color:#6CACE4">UTA</div><div class="sp-w"><div class="wd on"></div><div class="wd on"></div><div class="wd"></div><div class="wd"></div></div></div></div></div>
+<div class="sp"><div class="sp-h"><span class="sp-c">Ouest</span><span class="sp-s l">ANA 3-2</span></div><div class="sp-m"><div class="sp-t"><img src="https://assets.nhle.com/logos/nhl/svg/ANA_light.svg"><div class="sp-a" style="color:#F47A38">ANA</div><div class="sp-w"><div class="wd on"></div><div class="wd on"></div><div class="wd on"></div><div class="wd"></div></div></div><div class="sp-v">vs</div><div class="sp-t"><img src="https://assets.nhle.com/logos/nhl/svg/EDM_light.svg"><div class="sp-a" style="color:#FC4C02">EDM</div><div class="sp-w"><div class="wd on"></div><div class="wd on"></div><div class="wd"></div><div class="wd"></div></div></div></div></div>
+<div class="sp dn"><div class="sp-h"><span class="sp-c">Ouest</span><span class="sp-s w">COL 4-0</span></div><div class="sp-m"><div class="sp-t"><img src="https://assets.nhle.com/logos/nhl/svg/COL_light.svg"><div class="sp-a" style="color:#6F263D">COL</div><div class="sp-w"><div class="wd on"></div><div class="wd on"></div><div class="wd on"></div><div class="wd on"></div></div></div><div class="sp-v">vs</div><div class="sp-t"><img src="https://assets.nhle.com/logos/nhl/svg/LAK_light.svg"><div class="sp-a" style="color:#A2AAAD">LAK</div><div class="sp-w"><div class="wd"></div><div class="wd"></div><div class="wd"></div><div class="wd"></div></div></div></div></div>
+</div>
+
+<div class="sh"><h2>Matchs à venir</h2></div>
+<div class="dh"><span class="dh-d">Mercredi</span><span class="dh-dt">29 avril</span><span class="tdy">Aujourd'hui</span></div>
+<div class="gs">
+<div class="gc"><div class="g1"><div class="gmu"><img src="https://assets.nhle.com/logos/nhl/svg/MTL_light.svg"><span class="ab" style="color:#af1e2d">MTL</span><span class="at">@</span><img src="https://assets.nhle.com/logos/nhl/svg/TBL_light.svg"><span class="ab" style="color:#002868">TBL</span><span class="gi">M5</span></div><div class="gtz"><div class="tz tz-e"><div class="lb">Montréal</div><div class="tm">19h00</div></div><div class="tz tz-p"><div class="lb">Paris</div><div class="tm">1h00</div><div class="dt">(30 avr.)</div></div></div></div><div class="g2"><div class="gs2"><div class="sl">TV Am. du Nord</div><div class="tvt"><span class="tv tv-u">ESPN2</span><span class="tv tv-c">SN</span><span class="tv tv-c">CBC</span><span class="tv tv-c">TVAS</span></div></div><div class="gs2"><div class="sl">TV Europe</div><div class="tvt"><span class="tv tv-f">beIN MAX</span><span class="tv tv-f">DAZN</span></div></div><div class="gs2"><div class="sl">Rediff. (h. Paris)</div><div class="rpl"><div class="rp"><span class="rp-t">~04h</span>DAZN intégral<span class="tg tg-i">immédiat</span></div><div class="rp"><span class="rp-t">~06h</span>DAZN condensé<span class="tg tg-c">~10min</span></div><div class="rp"><span class="rp-t">~04h</span>ESPN+ SN+ TVA+<span class="tg tg-i">immédiat</span></div><div class="rp"><span class="rp-t">~09h</span>beIN CONNECT<span class="tg tg-j">J+1</span></div><div class="rp"><span class="rp-t">~15h</span>TVA Sports<span class="tg tg-j">rediff.</span></div></div></div></div></div>
