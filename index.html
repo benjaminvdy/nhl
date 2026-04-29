@@ -3,499 +3,68 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>🏒 NHL Playoffs 2026 — LIVE</title>
+<meta name="theme-color" content="#0a0e1a">
+<title>NHL Playoffs 2026</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏒</text></svg>">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-:root{--bg:#0a0e1a;--card:#131829;--card-h:#1a2035;--blue:#3b82f6;--cyan:#06b6d4;--green:#10b981;--orange:#f59e0b;--red:#ef4444;--purple:#8b5cf6;--t1:#f1f5f9;--t2:#94a3b8;--t3:#64748b;--bdr:#1e293b}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+:root{--bg:#0a0e1a;--c:#111827;--c2:#1a2035;--bl:#3b82f6;--cy:#06b6d4;--gn:#10b981;--or:#f59e0b;--rd:#ef4444;--pu:#8b5cf6;--t1:#f1f5f9;--t2:#94a3b8;--t3:#64748b;--bd:#1e293b}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var(--t1);min-height:100vh;line-height:1.6}
-
-.header{background:linear-gradient(135deg,#0f172a,#1e1b4b,#0f172a);border-bottom:1px solid var(--bdr);padding:1rem 1.5rem;position:sticky;top:0;z-index:100;backdrop-filter:blur(20px)}
-.header-inner{max-width:1500px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.8rem}
-.header h1{font-size:1.35rem;font-weight:800;background:linear-gradient(135deg,#3b82f6,#06b6d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;display:flex;align-items:center;gap:.4rem}
-.header h1 span{font-size:1.5rem;-webkit-text-fill-color:initial}
-.clocks{display:flex;gap:.7rem;flex-wrap:wrap}
-.clk{background:rgba(255,255,255,.05);border:1px solid var(--bdr);border-radius:10px;padding:.3rem .7rem;text-align:center;min-width:120px}
-.clk .lb{font-size:.56rem;text-transform:uppercase;letter-spacing:1.2px;color:var(--t3)}
-.clk .tm{font-size:.95rem;font-weight:700;font-variant-numeric:tabular-nums}
-.clk-et .tm{color:var(--blue)}.clk-pa .tm{color:var(--cyan)}.clk-zh .tm{color:var(--green)}
-
-.status-bar{max-width:1500px;margin:0 auto;padding:.6rem 1.5rem;display:flex;align-items:center;gap:.8rem;flex-wrap:wrap}
-.status-bar .upd{font-size:.7rem;color:var(--t3)}
-.status-bar .upd strong{color:var(--cyan)}
-.btn-ref{background:var(--blue);color:#fff;border:none;padding:.3rem .7rem;border-radius:7px;font-size:.7rem;font-weight:600;cursor:pointer;transition:all .2s}
-.btn-ref:hover{background:#2563eb;transform:scale(1.03)}
-.btn-ref:disabled{opacity:.5;cursor:wait}
-.auto-label{font-size:.68rem;color:var(--t3);display:flex;align-items:center;gap:.3rem;cursor:pointer}
-.auto-label input{accent-color:var(--blue)}
-.sdot{width:8px;height:8px;border-radius:50%;display:inline-block}
-.sdot.ok{background:var(--green);animation:pulse 2s infinite}
-.sdot.err{background:var(--red)}
-.sdot.load{background:var(--orange);animation:pulse .8s infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
-
-.main{max-width:1500px;margin:0 auto;padding:0 1.5rem 2rem}
-.stitle{font-size:1.15rem;font-weight:700;margin:1.3rem 0 1rem;display:flex;align-items:center;gap:.5rem}
-.badge{font-size:.58rem;text-transform:uppercase;letter-spacing:1px;padding:2px 8px;border-radius:20px;font-weight:600}
-.badge-live{background:var(--red);color:#fff;animation:pulse 2s infinite}
-.badge-auto{background:var(--green);color:#fff}
-.note-box{background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.3);border-radius:11px;padding:.7rem 1rem;margin-bottom:1.2rem;font-size:.78rem;color:var(--orange)}
-
-.loading{text-align:center;padding:2.5rem;color:var(--t3);font-size:.82rem}
-.loading .spin{width:32px;height:32px;border:3px solid var(--bdr);border-top-color:var(--blue);border-radius:50%;animation:sp .7s linear infinite;margin:0 auto .6rem}
-@keyframes sp{to{transform:rotate(360deg)}}
-.errbox{text-align:center;padding:1.5rem;background:rgba(239,68,68,.07);border:1px solid rgba(239,68,68,.25);border-radius:11px;color:var(--red);font-size:.8rem;margin:1rem 0}
-.errbox button{margin-top:.6rem;background:var(--red);color:#fff;border:none;padding:.35rem .8rem;border-radius:7px;cursor:pointer;font-size:.72rem;font-weight:600}
-
-.sgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:.9rem;margin-bottom:2rem}
-.scard{background:var(--card);border:1px solid var(--bdr);border-radius:14px;padding:1rem;transition:all .2s}
-.scard:hover{background:var(--card-h);border-color:var(--blue);transform:translateY(-1px)}
-.scard.mtl{border-color:rgba(175,30,45,.5)}
-.sh{display:flex;justify-content:space-between;align-items:center;margin-bottom:.6rem}
-.sconf{font-size:.58rem;text-transform:uppercase;letter-spacing:1.3px;color:var(--t3)}
-.sst{font-size:.62rem;padding:2px 7px;border-radius:9px;font-weight:600}
-.sst-tied{background:rgba(245,158,11,.2);color:var(--orange)}
-.sst-lead{background:rgba(59,130,246,.2);color:var(--blue)}
-.sst-won{background:rgba(16,185,129,.2);color:var(--green)}
-.mu{display:flex;align-items:center;justify-content:space-between}
-.tm-box{display:flex;flex-direction:column;align-items:center;flex:1;text-align:center}
-.tlogo{width:52px;height:52px;object-fit:contain;filter:drop-shadow(0 2px 5px rgba(0,0,0,.4));transition:transform .2s}
-.tlogo:hover{transform:scale(1.08)}
-.tabbr{font-size:1rem;font-weight:800;letter-spacing:1px;margin-top:2px}
-.tname{font-size:.62rem;color:var(--t2);margin-top:1px}
-.vs{font-size:.72rem;font-weight:700;color:var(--t3);padding:0 .2rem}
-.wins{display:flex;gap:3px;margin-top:3px}
-.wd{width:8px;height:8px;border-radius:50%;background:var(--bdr)}
-.wd.on{background:var(--green)}
-
-.sw{overflow-x:auto;margin-bottom:2rem}
-.schtbl{width:100%;border-collapse:separate;border-spacing:0 4px;min-width:860px}
-.schtbl thead th{text-align:left;font-size:.6rem;text-transform:uppercase;letter-spacing:1.3px;color:var(--t3);padding:.4rem .6rem;font-weight:600}
-.schtbl tbody tr{background:var(--card);transition:background .2s}
-.schtbl tbody tr:hover{background:var(--card-h)}
-.schtbl tbody tr.live-r{background:rgba(239,68,68,.08)}
-.schtbl td{padding:.55rem .6rem;font-size:.78rem;border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr);vertical-align:middle}
-.schtbl td:first-child{border-left:1px solid var(--bdr);border-radius:9px 0 0 9px}
-.schtbl td:last-child{border-right:1px solid var(--bdr);border-radius:0 9px 9px 0}
-.gc{font-weight:600;display:flex;align-items:center;gap:.3rem}
-.gc img{width:22px;height:22px;object-fit:contain}
-.gc .at{color:var(--t3);font-weight:400;font-size:.68rem}
-.tc{font-variant-numeric:tabular-nums;font-weight:500}
-.tc-et{color:var(--blue)}.tc-pa{color:var(--cyan)}.tc-zh{color:var(--green)}
-.tvt{display:flex;flex-wrap:wrap;gap:2px}
-.tv{font-size:.56rem;padding:1px 4px;border-radius:4px;font-weight:600;white-space:nowrap}
-.tv-us{background:rgba(59,130,246,.12);color:var(--blue);border:1px solid rgba(59,130,246,.22)}
-.tv-ca{background:rgba(239,68,68,.12);color:var(--red);border:1px solid rgba(239,68,68,.22)}
-.tv-fr{background:rgba(139,92,246,.12);color:var(--purple);border:1px solid rgba(139,92,246,.22)}
-.tv-ch{background:rgba(16,185,129,.12);color:var(--green);border:1px solid rgba(16,185,129,.22)}
-.gl{font-size:.58rem;color:var(--t3)}
-.gs-live{display:inline-block;background:var(--red);color:#fff;font-size:.53rem;padding:1px 5px;border-radius:4px;font-weight:700;animation:pulse 1.5s infinite}
-.gs-final{display:inline-block;background:var(--t3);color:#fff;font-size:.53rem;padding:1px 5px;border-radius:4px;font-weight:600}
-.scr{font-weight:700;font-size:.82rem}
-
-.bcg{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:.9rem;margin-bottom:2rem}
-.bcc{background:var(--card);border:1px solid var(--bdr);border-radius:14px;padding:1rem 1.2rem}
-.bcc h3{font-size:.85rem;font-weight:700;margin-bottom:.5rem}
-.bcc ul{list-style:none;display:flex;flex-direction:column;gap:.25rem}
-.bcc li{font-size:.75rem;color:var(--t2);padding-left:.8rem;position:relative}
-.bcc li::before{content:'•';position:absolute;left:0;color:var(--t3)}
-.hl{color:var(--t1);font-weight:600}
-.sub{font-size:.66rem;color:var(--t3);margin-top:.4rem;font-style:italic}
-
-.rpg{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:.9rem;margin-bottom:2rem}
-.rpc{background:var(--card);border:1px solid var(--bdr);border-radius:14px;padding:1rem 1.2rem}
-.rpc h3{font-size:.85rem;font-weight:700;margin-bottom:.4rem}
-.pl{background:rgba(255,255,255,.03);border:1px solid var(--bdr);border-radius:8px;padding:.45rem .6rem;margin-bottom:.35rem}
-.pln{font-size:.72rem;font-weight:700;color:var(--t1);margin-bottom:.1rem}
-.pld{font-size:.68rem;color:var(--t2);line-height:1.4}
-.plt{font-size:.68rem;color:var(--cyan);font-weight:500;margin-top:.1rem}
-.rpt{display:inline-block;font-size:.52rem;padding:1px 4px;border-radius:3px;font-weight:600;margin-left:2px;text-transform:uppercase}
-.rpt-l{background:rgba(239,68,68,.2);color:var(--red)}
-.rpt-r{background:rgba(139,92,246,.2);color:var(--purple)}
-.rpt-o{background:rgba(6,182,212,.2);color:var(--cyan)}
-.rpt-c{background:rgba(245,158,11,.2);color:var(--orange)}
-
-.footer{text-align:center;padding:1.5rem;color:var(--t3);font-size:.66rem;border-top:1px solid var(--bdr);margin-top:2rem}
-
-@media(max-width:768px){
-.header-inner{flex-direction:column;align-items:flex-start}
-.clocks{width:100%}.clk{min-width:85px;flex:1}
-.main{padding:0 .8rem 1rem}
-.sgrid,.bcg,.rpg{grid-template-columns:1fr}
-.tlogo{width:40px;height:40px}
-}
-</style>
-</head>
-<body>
-
-<div class="header"><div class="header-inner">
-<h1><span>🏒</span> NHL Playoffs 2026 — LIVE</h1>
-<div class="clocks">
-<div class="clk clk-et"><div class="lb">🇨🇦 Montréal (ET)</div><div class="tm" id="ck-et">--:--:--</div></div>
-<div class="clk clk-pa"><div class="lb">🇫🇷 Paris (CEST)</div><div class="tm" id="ck-pa">--:--:--</div></div>
-<div class="clk clk-zh"><div class="lb">🇨🇭 Zurich (CEST)</div><div class="tm" id="ck-zh">--:--:--</div></div>
-</div>
-</div></div>
-
-<div class="status-bar">
-<span class="sdot load" id="sd"></span>
-<span class="upd" id="st">Chargement...</span>
-<button class="btn-ref" id="br" onclick="refreshAll()">🔄 Rafraîchir</button>
-<label class="auto-label"><input type="checkbox" id="ac" checked> MAJ auto (5 min)</label>
-</div>
-
-<div class="main">
-<div class="note-box">⏰ Paris & Zurich = UTC+2 (CEST) = <strong>+6h</strong> vs Montréal. Un match à 19h ET → 1h00 du matin en Europe. &nbsp;📡 Données en direct via l'API NHL, rafraîchies à chaque ouverture et toutes les 5 min.</div>
-
-<div class="stitle">📊 État des séries <span class="badge badge-auto" id="rb">—</span></div>
-<div id="sg" class="sgrid"><div class="loading"><div class="spin"></div>Chargement...</div></div>
-
-<div class="stitle">📅 Calendrier multi-fuseaux <span class="badge badge-live">LIVE</span></div>
-<div id="sc"><div class="loading"><div class="spin"></div>Chargement...</div></div>
-
-<div class="stitle">📺 Diffuseurs par région</div>
-<div class="bcg">
-<div class="bcc"><h3>🇺🇸 États-Unis</h3><ul><li><span class="hl">ESPN / ESPN2 / ABC</span> — matchs nationaux (Disney)</li><li><span class="hl">TNT / TBS / truTV</span> — matchs nationaux (Warner)</li><li><span class="hl">ESPN+</span> — streaming + replays</li><li><span class="hl">Max (HBO)</span> — streaming des matchs TNT/TBS</li></ul></div>
-<div class="bcc"><h3>🇨🇦 Canada (EN)</h3><ul><li><span class="hl">Sportsnet (SN)</span> — diffuseur national</li><li><span class="hl">CBC</span> — Hockey Night in Canada</li><li><span class="hl">Sportsnet+</span> — streaming + replays</li></ul><p class="sub">SN+ : 29,99 $/mois</p></div>
-<div class="bcc"><h3>🇨🇦 Québec (FR)</h3><ul><li><span class="hl">TVA Sports</span> — exclusivité francophone</li><li><span class="hl">TVA+</span> — streaming + rediffusions</li><li><span class="hl">TVAS2</span> — complémentaire</li></ul><p class="sub">TVA+ : 17,99 $/mois</p></div>
-<div class="bcc"><h3>🇫🇷 France</h3><ul><li><span class="hl">beIN SPORTS</span> — TV officiel (MAX 4-7)</li><li><span class="hl">DAZN</span> — intégralité + replays</li><li><span class="hl">Canal+</span> — sélection limitée</li></ul><p class="sub">beIN : 15 €/mois | DAZN : 22,99 €/mois</p></div>
-<div class="bcc"><h3>🇨🇭 Suisse</h3><ul><li><span class="hl">DAZN / NHL.TV</span> — intégralité + replays</li><li>Via navigateur, app, smart TV</li></ul></div>
-</div>
-
-<div class="stitle">🔁 Rediffusions & Replays</div>
-<div class="rpg">
-<div class="rpc"><h3>🇨🇦 TVA Sports</h3>
-<div class="pl"><div class="pln">Grille type <span class="rpt rpt-r">REDIFF.</span></div><div class="pld">~03h30 rediff. 2e match | ~06h00 Le Top LNH | ~09h00 rediff. match CH | ~11h30 rediff. 2e match | ~17h00 JiC</div></div>
-<div class="pl"><div class="pln">TVA+ <span class="rpt rpt-o">ON DEMAND</span></div><div class="pld">En tout temps. 17,99 $/mois.</div></div>
-</div>
-<div class="rpc"><h3>🇨🇦 Sportsnet+</h3>
-<div class="pl"><div class="pln">All Event Replays <span class="rpt rpt-o">ON DEMAND</span></div><div class="pld">Replay intégral ~30 min après le match.</div></div>
-<div class="pl"><div class="pln">CBC Gem <span class="rpt rpt-r">SÉLECTION</span></div><div class="pld">Matchs du samedi. Gratuit.</div></div>
-</div>
-<div class="rpc"><h3>🇫🇷 beIN / DAZN</h3>
-<div class="pl"><div class="pln">beIN CONNECT <span class="rpt rpt-r">J+1</span></div><div class="pld">Replay lendemain matin.</div></div>
-<div class="pl"><div class="pln">DAZN Full Replays <span class="rpt rpt-o">IMMÉDIAT</span></div><div class="pld">Dès la fin du match. Aucun blackout.</div>
-<div class="plt">Condensed (~10 min) ~2h après | Recaps (~5 min)</div></div>
-</div>
-<div class="rpc"><h3>🇺🇸 ESPN+ / Max</h3>
-<div class="pl"><div class="pln">ESPN+ <span class="rpt rpt-o">ON DEMAND</span></div><div class="pld">Replays matchs ESPN/ABC. Dès la fin.</div></div>
-<div class="pl"><div class="pln">Max (HBO) <span class="rpt rpt-o">ON DEMAND</span></div><div class="pld">Replays matchs TNT/TBS/truTV.</div></div>
-</div>
-</div>
-
-</div>
-
-<div class="footer">📡 API : api-web.nhle.com | Logos © NHL | Diffuseurs EU : beIN, DAZN, Canal+ | Page auto-actualisée</div>
-
-<script>
-// ======================================================================
-// CONFIG
-// ======================================================================
-const API_BASE = 'https://api-web.nhle.com/v1';
-const SEASON = '20252026';
-const REFRESH_MS = 300000;
-let timer = null;
-
-// CORS proxy cascade — tries each in order until one works
-const PROXIES = [
-    url => url,  // direct (works if API allows CORS or browser extension)
-    url => 'https://corsproxy.io/?' + encodeURIComponent(url),
-    url => 'https://api.allorigins.win/raw?url=' + encodeURIComponent(url),
-    url => 'https://everyorigin.jwvbremen.nl/api/get?url=' + encodeURIComponent(url)
-];
-let activeProxy = 0; // index of last working proxy
-
-// ======================================================================
-// TEAM DATA
-// ======================================================================
-const TM = {
-MTL:{n:'Canadiens de Montréal',c:'#af1e2d',cf:'Est',dv:'Atlantique'},
-TBL:{n:'Tampa Bay Lightning',c:'#002868',cf:'Est',dv:'Atlantique'},
-BUF:{n:'Buffalo Sabres',c:'#003087',cf:'Est',dv:'Atlantique'},
-BOS:{n:'Boston Bruins',c:'#FFB81C',cf:'Est',dv:'Atlantique'},
-FLA:{n:'Florida Panthers',c:'#C8102E',cf:'Est',dv:'Atlantique'},
-TOR:{n:'Toronto Maple Leafs',c:'#00205B',cf:'Est',dv:'Atlantique'},
-OTT:{n:'Ottawa Senators',c:'#C52032',cf:'Est',dv:'Atlantique'},
-DET:{n:'Detroit Red Wings',c:'#CE1126',cf:'Est',dv:'Atlantique'},
-CAR:{n:'Carolina Hurricanes',c:'#CE1126',cf:'Est',dv:'Métro.'},
-PHI:{n:'Philadelphia Flyers',c:'#F74902',cf:'Est',dv:'Métro.'},
-PIT:{n:'Pittsburgh Penguins',c:'#FCB514',cf:'Est',dv:'Métro.'},
-NJD:{n:'New Jersey Devils',c:'#CE1126',cf:'Est',dv:'Métro.'},
-NYR:{n:'New York Rangers',c:'#0038A8',cf:'Est',dv:'Métro.'},
-NYI:{n:'New York Islanders',c:'#00539B',cf:'Est',dv:'Métro.'},
-WSH:{n:'Washington Capitals',c:'#C8102E',cf:'Est',dv:'Métro.'},
-CBJ:{n:'Columbus Blue Jackets',c:'#002654',cf:'Est',dv:'Métro.'},
-COL:{n:'Colorado Avalanche',c:'#6F263D',cf:'Ouest',dv:'Centrale'},
-DAL:{n:'Dallas Stars',c:'#006847',cf:'Ouest',dv:'Centrale'},
-MIN:{n:'Minnesota Wild',c:'#154734',cf:'Ouest',dv:'Centrale'},
-WPG:{n:'Winnipeg Jets',c:'#041E42',cf:'Ouest',dv:'Centrale'},
-NSH:{n:'Nashville Predators',c:'#FFB81C',cf:'Ouest',dv:'Centrale'},
-STL:{n:'St. Louis Blues',c:'#002F87',cf:'Ouest',dv:'Centrale'},
-CHI:{n:'Chicago Blackhawks',c:'#CF0A2C',cf:'Ouest',dv:'Centrale'},
-VGK:{n:'Vegas Golden Knights',c:'#B4975A',cf:'Ouest',dv:'Pacifique'},
-UTA:{n:'Utah Hockey Club',c:'#6CACE4',cf:'Ouest',dv:'Pacifique'},
-ANA:{n:'Anaheim Ducks',c:'#F47A38',cf:'Ouest',dv:'Pacifique'},
-EDM:{n:'Edmonton Oilers',c:'#FC4C02',cf:'Ouest',dv:'Pacifique'},
-LAK:{n:'Los Angeles Kings',c:'#A2AAAD',cf:'Ouest',dv:'Pacifique'},
-VAN:{n:'Vancouver Canucks',c:'#00205B',cf:'Ouest',dv:'Pacifique'},
-CGY:{n:'Calgary Flames',c:'#D2001C',cf:'Ouest',dv:'Pacifique'},
-SJS:{n:'San Jose Sharks',c:'#006D75',cf:'Ouest',dv:'Pacifique'},
-SEA:{n:'Seattle Kraken',c:'#001628',cf:'Ouest',dv:'Pacifique'}
-};
-
-const RN = {1:'1er tour',2:'Demi-finales',3:'Finales de conf.',4:'Finale Coupe Stanley'};
-const DJ = ['Dim.','Lun.','Mar.','Mer.','Jeu.','Ven.','Sam.'];
-const MO = ['janv.','févr.','mars','avr.','mai','juin','juil.','août','sept.','oct.','nov.','déc.'];
-
-// ======================================================================
-// CLOCKS
-// ======================================================================
-function uc(){
-    const n=new Date(),o={hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false};
-    document.getElementById('ck-et').textContent=n.toLocaleTimeString('fr-CA',{...o,timeZone:'America/Montreal'});
-    document.getElementById('ck-pa').textContent=n.toLocaleTimeString('fr-FR',{...o,timeZone:'Europe/Paris'});
-    document.getElementById('ck-zh').textContent=n.toLocaleTimeString('fr-CH',{...o,timeZone:'Europe/Zurich'});
-}
-setInterval(uc,1000);uc();
-
-// ======================================================================
-// FETCH WITH CORS PROXY CASCADE
-// ======================================================================
-async function apiFetch(path) {
-    const url = API_BASE + path;
-
-    // Try the last working proxy first, then cycle through all
-    const order = [activeProxy, ...PROXIES.map((_,i)=>i).filter(i=>i!==activeProxy)];
-
-    for (const idx of order) {
-        try {
-            const proxyUrl = PROXIES[idx](url);
-            const ctrl = new AbortController();
-            const timeout = setTimeout(() => ctrl.abort(), 8000);
-
-            const r = await fetch(proxyUrl, {signal: ctrl.signal});
-            clearTimeout(timeout);
-
-            if (!r.ok) continue;
-
-            let data;
-            const ct = r.headers.get('content-type') || '';
-
-            // EveryOrigin wraps in JSON with "contents" field
-            if (idx === 3) {
-                const wrapper = await r.json();
-                data = typeof wrapper.contents === 'string' ? JSON.parse(wrapper.contents) : wrapper;
-            } else {
-                data = await r.json();
-            }
-
-            activeProxy = idx;
-            console.log(`[NHL] ✅ Proxy ${idx} worked for ${path}`);
-            return data;
-        } catch(e) {
-            console.warn(`[NHL] Proxy ${idx} failed for ${path}:`, e.message);
-            continue;
-        }
-    }
-    throw new Error('Tous les proxies ont échoué. Vérifiez votre connexion internet.');
-}
-
-// ======================================================================
-// HELPERS
-// ======================================================================
-const logo = a => `https://assets.nhle.com/logos/nhl/svg/${a}_light.svg`;
-const tn = a => TM[a]?.n||a;
-const tc = a => TM[a]?.c||'#888';
-const fmtD = ds => {const d=new Date(ds+'T12:00:00');return `${DJ[d.getDay()]} ${d.getDate()} ${MO[d.getMonth()]}`};
-
-function tz(utc,zone){return new Date(utc).toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit',hour12:false,timeZone:zone})}
-function tzDate(utc,zone){return new Date(utc).toLocaleDateString('fr-FR',{day:'numeric',month:'short',timeZone:zone})}
-function diffDay(utc,z1,z2){const d=new Date(utc);return d.toLocaleDateString('en-CA',{timeZone:z1})!==d.toLocaleDateString('en-CA',{timeZone:z2})}
-
-// ======================================================================
-// RENDER BRACKET
-// ======================================================================
-function renderBracket(data) {
-    const el = document.getElementById('sg');
-    const rb = document.getElementById('rb');
-    let rounds = data.rounds || data.bracketRounds || [];
-
-    if (!rounds.length && Array.isArray(data)) rounds = data;
-    if (!rounds.length) {
-        // Try alternate structure
-        if (data.series) rounds = [{roundNumber:1, series:data.series}];
-    }
-
-    if (!rounds.length) {
-        el.innerHTML = '<div class="errbox">Format inattendu. <a href="https://www.nhl.com/playoffs/2026/bracket" target="_blank" style="color:var(--cyan)">Voir nhl.com</a></div>';
-        return;
-    }
-
-    let curRound = 1;
-    for (const r of rounds) {
-        const rn = r.roundNumber||r.roundNum||1;
-        if ((r.series||[]).some(s => {
-            const tw=s.topSeedWins??s.topSeed?.wins??0, bw=s.bottomSeedWins??s.bottomSeed?.wins??0;
-            return tw<4&&bw<4&&(tw>0||bw>0);
-        })) curRound = rn;
-    }
-    rb.textContent = RN[curRound]||`Ronde ${curRound}`;
-
-    let h = '';
-    for (const r of rounds) {
-        const rn = r.roundNumber||r.roundNum||1;
-        for (const s of (r.series||[])) {
-            const tT=s.topSeedTeam||s.topSeed?.team||s.topSeed||{};
-            const bT=s.bottomSeedTeam||s.bottomSeed?.team||s.bottomSeed||{};
-            const tA=tT.abbrev||tT.triCode||'???';
-            const bA=bT.abbrev||bT.triCode||'???';
-            if(tA==='???'&&bA==='???')continue;
-            const tW=s.topSeedWins??tT.wins??s.topSeed?.wins??0;
-            const bW=s.bottomSeedWins??bT.wins??s.bottomSeed?.wins??0;
-            const tL=tT.logo||logo(tA), bL=bT.logo||logo(bA);
-            const isMTL=tA==='MTL'||bA==='MTL';
-
-            let stTxt,stCls;
-            if(tW===4){stTxt=`${tA} gagne 4-${bW} ✓`;stCls='sst-won'}
-            else if(bW===4){stTxt=`${bA} gagne 4-${tW} ✓`;stCls='sst-won'}
-            else if(tW===bW){stTxt=`Égalité ${tW}-${bW}`;stCls='sst-tied'}
-            else if(tW>bW){stTxt=`${tA} mène ${tW}-${bW}`;stCls='sst-lead'}
-            else{stTxt=`${bA} mène ${bW}-${tW}`;stCls='sst-lead'}
-
-            const cf=TM[tA]?.cf||TM[bA]?.cf||'?', dv=TM[tA]?.dv||TM[bA]?.dv||'?';
-
-            h+=`<div class="scard ${isMTL?'mtl':''}">
-            <div class="sh"><span class="sconf">${RN[rn]||'R'+rn} · ${cf} ${dv}</span><span class="sst ${stCls}">${stTxt}</span></div>
-            <div class="mu">
-                <div class="tm-box">
-                    <img class="tlogo" src="${tL}" alt="${tA}" onerror="this.style.display='none'">
-                    <div class="tabbr" style="color:${tc(tA)}">${tA}</div>
-                    <div class="tname">${tn(tA)}${tA==='MTL'?' 🍁':''}</div>
-                    <div class="wins">${[0,1,2,3].map(i=>`<div class="wd ${i<tW?'on':''}"></div>`).join('')}</div>
-                </div>
-                <div class="vs">vs</div>
-                <div class="tm-box">
-                    <img class="tlogo" src="${bL}" alt="${bA}" onerror="this.style.display='none'">
-                    <div class="tabbr" style="color:${tc(bA)}">${bA}</div>
-                    <div class="tname">${tn(bA)}</div>
-                    <div class="wins">${[0,1,2,3].map(i=>`<div class="wd ${i<bW?'on':''}"></div>`).join('')}</div>
-                </div>
-            </div></div>`;
-        }
-    }
-    el.innerHTML = h||'<div class="errbox">Aucune série trouvée.</div>';
-}
-
-// ======================================================================
-// RENDER SCHEDULE
-// ======================================================================
-function renderSchedule(data) {
-    const el = document.getElementById('sc');
-    const gw = data.gameWeek||[];
-    let games = [];
-    for (const d of gw) for (const g of (d.games||[])) games.push({...g, dateStr:d.date});
-    // Keep only playoff (type 3) if present
-    if(games.some(g=>g.gameType===3)) games=games.filter(g=>g.gameType===3);
-
-    if(!games.length){el.innerHTML='<div class="errbox">Aucun match cette semaine. <a href="https://www.nhl.com/schedule" target="_blank" style="color:var(--cyan)">nhl.com/schedule</a></div>';return}
-
-    let h='<div class="sw"><table class="schtbl"><thead><tr><th>Date</th><th>Match</th><th>🇨🇦 Montréal</th><th>🇫🇷 Paris</th><th>🇨🇭 Zurich</th><th>📺 Am. du Nord</th><th>📺 Europe</th><th>État</th></tr></thead><tbody>';
-
-    for(const g of games){
-        const aw=g.awayTeam||{}, hm=g.homeTeam||{};
-        const aA=aw.abbrev||'?', hA=hm.abbrev||'?';
-        const aL=aw.logo||logo(aA), hL=hm.logo||logo(hA);
-        const st=g.gameState||'FUT';
-        const isLive=['LIVE','CRIT'].includes(st), isFin=['FINAL','OFF'].includes(st);
-        const utc=g.startTimeUTC;
-
-        let et='—',pa='—',zh='—';
-        if(utc){
-            et=tz(utc,'America/Montreal');
-            pa=tz(utc,'Europe/Paris');
-            zh=tz(utc,'Europe/Zurich');
-            if(diffDay(utc,'America/Montreal','Europe/Paris')){
-                const nd=tzDate(utc,'Europe/Paris');
-                pa+=` <small>(${nd})</small>`;
-                zh+=` <small>(${nd})</small>`;
-            }
-        }
-
-        const ss=g.seriesStatus||{};
-        const gn=ss.gameNumberOfSeries||ss.game||'';
-        const sl=gn?`Match ${gn}`:'';
-
-        const tvNA=(g.tvBroadcasts||[]).filter(b=>['US','CA'].includes(b.countryCode))
-            .map(b=>`<span class="tv ${b.countryCode==='US'?'tv-us':'tv-ca'}">${b.network}</span>`).join('');
-        const tvEU='<span class="tv tv-fr">beIN MAX</span><span class="tv tv-fr">DAZN</span><span class="tv tv-ch">NHL.TV</span>';
-
-        let stH='';
-        if(isLive){
-            const per=g.periodDescriptor?.number||'', clk=g.clock?.timeRemaining||'';
-            stH=`<span class="gs-live">🔴 DIRECT</span>`;
-            if(per||clk)stH+=`<br><span style="font-size:.68rem;color:var(--t2)">${per?'P'+per:''} ${clk}</span>`;
-            stH+=`<br><span class="scr">${aw.score??''} - ${hm.score??''}</span>`;
-        } else if(isFin){
-            stH=`<span class="gs-final">FINAL</span><br><span class="scr">${aw.score??'?'} - ${hm.score??'?'}</span>`;
-        } else {
-            stH='<span style="font-size:.68rem;color:var(--t3)">À venir</span>';
-        }
-
-        h+=`<tr class="${isLive?'live-r':''}">
-        <td><strong>${fmtD(g.dateStr)}</strong><br><span class="gl">${sl}</span></td>
-        <td><div class="gc"><img src="${aL}" alt="${aA}" onerror="this.style.display='none'"><span style="color:${tc(aA)};font-weight:800">${aA}</span><span class="at">@</span><img src="${hL}" alt="${hA}" onerror="this.style.display='none'"><span style="color:${tc(hA)};font-weight:800">${hA}</span></div></td>
-        <td class="tc tc-et">${et}</td><td class="tc tc-pa">${pa}</td><td class="tc tc-zh">${zh}</td>
-        <td><div class="tvt">${tvNA||'<span style="font-size:.68rem;color:var(--t3)">À dét.</span>'}</div></td>
-        <td><div class="tvt">${tvEU}</div></td>
-        <td>${stH}</td></tr>`;
-    }
-    h+='</tbody></table></div><p style="font-size:.66rem;color:var(--t3);margin-top:.3rem">TV nord-américaines via API NHL. TV européennes : info statique (beIN, DAZN).</p>';
-    el.innerHTML=h;
-}
-
-// ======================================================================
-// STATUS
-// ======================================================================
-function setSt(s,m){
-    document.getElementById('sd').className='sdot '+s;
-    document.getElementById('st').innerHTML=m;
-}
-
-// ======================================================================
-// REFRESH
-// ======================================================================
-async function refreshAll(){
-    document.getElementById('br').disabled=true;
-    setSt('load','Chargement...');
-    try{
-        const [bracket,schedule] = await Promise.all([
-            apiFetch('/playoff-bracket/'+SEASON),
-            apiFetch('/schedule/now')
-        ]);
-        renderBracket(bracket);
-        renderSchedule(schedule);
-        const ts=new Date().toLocaleTimeString('fr-CA',{hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false,timeZone:'America/Montreal'});
-        const proxyNames=['Direct','corsproxy.io','allorigins.win','everyorigin'];
-        setSt('ok',`MAJ : <strong>${ts}</strong> (ET) via ${proxyNames[activeProxy]}`);
-    } catch(err){
-        console.error('[NHL]',err);
-        setSt('err',`Erreur : ${err.message} <a href="#" onclick="refreshAll();return false" style="color:var(--cyan)">Réessayer</a>`);
-    }
-    document.getElementById('br').disabled=false;
-}
-
-// ======================================================================
-// AUTO-REFRESH + INIT
-// ======================================================================
-function startTimer(){
-    if(timer)clearInterval(timer);
-    timer=setInterval(()=>{if(document.getElementById('ac').checked)refreshAll()},REFRESH_MS);
-}
-document.getElementById('ac').addEventListener('change',e=>{if(e.target.checked)startTimer();else if(timer)clearInterval(timer)});
-
-// Launch on page load
-document.addEventListener('DOMContentLoaded',()=>{refreshAll();startTimer()});
-</script>
-
-</body>
-</html>
+body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var(--t1);line-height:1.55}
+::selection{background:rgba(59,130,246,.3)}
+.hd{background:linear-gradient(135deg,#0f172a,#1e1b4b,#172554);border-bottom:1px solid rgba(59,130,246,.15);padding:.6rem 1rem;position:sticky;top:0;z-index:100;backdrop-filter:blur(20px)}
+.hd-in{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.4rem}
+.logo{display:flex;align-items:center;gap:.35rem}
+.logo span{font-size:1.2rem}
+.logo-t{font-size:.95rem;font-weight:800;background:linear-gradient(135deg,#60a5fa,#06b6d4,#34d399);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.logo-s{font-size:.4rem;text-transform:uppercase;letter-spacing:1.8px;color:var(--t3)}
+.clks{display:flex;gap:.4rem}
+.ck{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:9px;padding:.2rem .5rem;text-align:center;min-width:102px}
+.ck .l{font-size:.42rem;text-transform:uppercase;letter-spacing:1px;color:var(--t3)}
+.ck .t{font-size:.78rem;font-weight:700;font-variant-numeric:tabular-nums}
+.ck-e .t{color:var(--bl)}.ck-p .t{color:var(--cy)}
+.mx{max-width:1100px;margin:0 auto;padding:.7rem 1rem}
+.ds{display:inline-flex;align-items:center;gap:.25rem;font-size:.52rem;padding:.2rem .45rem;border-radius:16px;margin-bottom:.5rem;border:1px solid var(--bd);background:rgba(17,24,39,.8)}
+.ds .d{width:5px;height:5px;border-radius:50%;background:var(--gn);box-shadow:0 0 4px var(--gn)}
+.ds .tx{color:var(--t3)}.ds .tx b{color:var(--t2)}
+.info{display:flex;align-items:center;gap:.3rem;padding:.35rem .6rem;border-radius:9px;margin-bottom:.7rem;background:linear-gradient(135deg,rgba(245,158,11,.05),transparent);border:1px solid rgba(245,158,11,.1);font-size:.62rem;color:var(--or)}
+.sh{display:flex;align-items:center;gap:.35rem;margin:1.1rem 0 .5rem}
+.sh h2{font-size:.9rem;font-weight:800}
+.sr{display:flex;gap:.4rem;overflow-x:auto;padding-bottom:.4rem;margin-bottom:.2rem;-webkit-overflow-scrolling:touch;scrollbar-width:thin;scrollbar-color:var(--bd) transparent}
+.sr::-webkit-scrollbar{height:3px}.sr::-webkit-scrollbar-thumb{background:var(--bd);border-radius:3px}
+.sp{background:var(--c);border:1px solid var(--bd);border-radius:9px;padding:.4rem .5rem;min-width:150px;flex-shrink:0;transition:all .12s}
+.sp:hover{border-color:rgba(59,130,246,.2);transform:translateY(-1px)}
+.sp.mtl{border-color:rgba(175,30,45,.3)}.sp.dn{opacity:.4}
+.sp-h{display:flex;justify-content:space-between;align-items:center;margin-bottom:.2rem}
+.sp-c{font-size:.36rem;text-transform:uppercase;letter-spacing:.7px;color:var(--t3);font-weight:600}
+.sp-s{font-size:.38rem;padding:1px 4px;border-radius:4px;font-weight:700}
+.sp-s.t{background:rgba(245,158,11,.1);color:var(--or)}.sp-s.l{background:rgba(59,130,246,.1);color:var(--bl)}.sp-s.w{background:rgba(16,185,129,.1);color:var(--gn)}
+.sp-m{display:flex;align-items:center;justify-content:space-between}
+.sp-t{display:flex;flex-direction:column;align-items:center;flex:1}
+.sp-t img{width:26px;height:26px;object-fit:contain}
+.sp-a{font-size:.62rem;font-weight:800;margin-top:1px}
+.sp-v{font-size:.42rem;color:var(--t3);font-weight:700}
+.sp-w{display:flex;gap:2px;margin-top:2px}
+.wd{width:5px;height:5px;border-radius:50%;background:var(--bd)}.wd.on{background:var(--gn)}
+.dh{display:flex;align-items:center;gap:.3rem;margin:.9rem 0 .4rem;padding:.3rem .5rem;border-radius:7px;background:linear-gradient(90deg,rgba(59,130,246,.04),transparent);border-left:3px solid var(--bl)}
+.dh-d{font-size:.75rem;font-weight:700}.dh-dt{font-size:.58rem;color:var(--t2)}
+.dh .tdy{font-size:.34rem;background:var(--rd);color:#fff;padding:1px 4px;border-radius:8px;font-weight:700;text-transform:uppercase}
+.gs{display:flex;flex-direction:column;gap:.4rem;margin-bottom:.2rem}
+.gc{background:var(--c);border:1px solid var(--bd);border-radius:10px;overflow:hidden;transition:all .1s}
+.gc:hover{border-color:rgba(59,130,246,.15)}.gc.ifn{opacity:.35;border-style:dashed}
+.g1{display:flex;align-items:stretch}
+.gmu{display:flex;align-items:center;gap:.25rem;padding:.4rem .55rem;min-width:160px;background:rgba(255,255,255,.01)}
+.gmu img{width:24px;height:24px;object-fit:contain}
+.gmu .ab{font-size:.85rem;font-weight:800}.gmu .at{font-size:.5rem;color:var(--t3)}
+.gmu .gi{font-size:.38rem;color:var(--t3);margin-left:auto;padding-left:.3rem;white-space:nowrap}
+.gtz{flex:1;display:flex;border-left:1px solid var(--bd)}
+.tz{flex:1;padding:.25rem .35rem;text-align:center;border-right:1px solid var(--bd)}
+.tz:last-of-type{border-right:none}
+.tz .lb{font-size:.34rem;text-transform:uppercase;letter-spacing:.6px;color:var(--t3)}
+.tz .tm{font-size:.78rem;font-weight:700;font-variant-numeric:tabular-nums;margin-top:1px}
+.tz .dt{font-size:.36rem;color:var(--t3)}
+.tz-e .tm{color:var(--bl)}.tz-p .tm{color:var(--cy)}
+.g2{display:flex;border-top:1px solid var(--bd);background:rgba(0,0,0,.1)}
+.gs2{flex:1;padding:.25rem .4rem;border-right:1px solid var(--bd)}.gs2:last-child{border-right:none}
+.gs2 .sl{font-size:.34rem;text-transform:uppercase;letter-spacing:.5px;color:var(--t3);margin-bottom:1px;font-weight:600}
+.tvt{display:flex;flex-wrap:wrap;gap:1px}
