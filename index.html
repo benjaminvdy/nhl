@@ -119,11 +119,11 @@ body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var
 <body>
 <div class="hd"><div class="hd-in">
 <div class="logo"><span>&#x1F3D2;</span><div><div class="logo-t">NHL Playoffs 2026</div><div class="logo-s">Horaires &middot; TV &middot; Rediffusions</div></div></div>
-<div class="clks"><div class="ck ck-e"><div class="l">Montr&eacute;al</div><div class="t" id="c1">--:--</div></div><div class="ck ck-p"><div class="l">Paris (+6h)</div><div class="t" id="c2">--:--</div></div></div>
+<div class="clks"><div class="ck ck-e"><div class="l">Montr&#233;al</div><div class="t" id="c1">--:--</div></div><div class="ck ck-p"><div class="l">Paris (+6h)</div><div class="t" id="c2">--:--</div></div></div>
 </div></div>
 <div class="mx">
 <div class="ds"><div class="dot ld" id="dd"></div><div class="tx" id="dt">Chargement...</div></div>
-<div class="info">Paris = <b>+6h</b> vs Montr&eacute;al. 19h Montr&eacute;al = <b>1h00 du matin</b> Paris. Rediffusions en heure de Paris.</div>
+<div class="info">Paris = <b>+6h</b> vs Montr&#233;al. 19h Montr&#233;al = <b>1h00 du matin</b> Paris. Rediffusions en heure de Paris.</div>
 <div class="rnav" id="rnav"></div>
 <div id="panels"></div>
 <div id="sched"></div>
@@ -131,16 +131,13 @@ body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var
 <div class="bcg">
 <div class="bc"><h3>USA</h3><ul><li><span class="hl">ESPN / ABC / TNT / TBS</span></li><li><span class="hl">ESPN+</span> replays</li><li><span class="hl">Max</span> TNT/TBS</li></ul></div>
 <div class="bc"><h3>Canada EN</h3><ul><li><span class="hl">Sportsnet / CBC</span></li><li><span class="hl">Sportsnet+</span> replays ~30 min</li></ul><p class="sub">SN+ : 29,99 $/mois</p></div>
-<div class="bc"><h3>Qu&eacute;bec FR</h3><ul><li><span class="hl">TVA Sports / TVAS2</span></li><li><span class="hl">TVA+</span> on demand</li></ul><p class="sub">TVA+ : 17,99 $/mois</p></div>
-<div class="bc"><h3>France &amp; Europe</h3><ul><li><span class="hl">beIN SPORTS</span> MAX 4-7</li><li><span class="hl">DAZN</span> int&eacute;gral + replays</li><li><span class="hl">beIN CONNECT</span> J+1</li></ul><p class="sub">beIN 15&#8364;/mois &middot; DAZN 22,99&#8364;/mois</p></div>
+<div class="bc"><h3>Qu&#233;bec FR</h3><ul><li><span class="hl">TVA Sports / TVAS2</span></li><li><span class="hl">TVA+</span> on demand</li></ul><p class="sub">TVA+ : 17,99 $/mois</p></div>
+<div class="bc"><h3>France &amp; Europe</h3><ul><li><span class="hl">beIN SPORTS</span> MAX 4-7</li><li><span class="hl">DAZN</span> int&#233;gral + replays</li><li><span class="hl">beIN CONNECT</span> J+1</li></ul><p class="sub">beIN 15&#8364;/mois &middot; DAZN 22,99&#8364;/mois</p></div>
 </div>
 </div>
-<div class="ft"><a href="https://www.nhl.com/scores" target="_blank">Scores en direct &rarr; nhl.com</a> &middot; <a href="https://www.nhl.com/schedule" target="_blank">Calendrier</a></div>
+<div class="ft"><a href="https://www.nhl.com/scores" target="_blank">Scores en direct &#8594; nhl.com</a> &middot; <a href="https://www.nhl.com/schedule" target="_blank">Calendrier</a></div>
 <script>
-// CLOCKS
 function uc(){var n=new Date(),o={hour:"2-digit",minute:"2-digit",second:"2-digit",hour12:false};document.getElementById("c1").textContent=n.toLocaleTimeString("fr-CA",Object.assign({},o,{timeZone:"America/Montreal"}));document.getElementById("c2").textContent=n.toLocaleTimeString("fr-FR",Object.assign({},o,{timeZone:"Europe/Paris"}))}setInterval(uc,1000);uc();
-
-// TEAMS
 var CLR={MTL:"#af1e2d",TBL:"#002868",TB:"#002868",BUF:"#003087",BOS:"#FFB81C",FLA:"#C8102E",TOR:"#00205B",OTT:"#C52032",DET:"#CE1126",CAR:"#CE1126",PHI:"#F74902",PIT:"#FCB514",NJD:"#CE1126",NJ:"#CE1126",NYR:"#0038A8",NYI:"#00539B",WSH:"#C8102E",CBJ:"#002654",COL:"#6F263D",DAL:"#006847",MIN:"#154734",WPG:"#041E42",NSH:"#FFB81C",STL:"#002F87",CHI:"#CF0A2C",VGK:"#B4975A",UTA:"#6CACE4",UTAH:"#6CACE4",ANA:"#F47A38",EDM:"#FC4C02",LAK:"#A2AAAD",VAN:"#00205B",CGY:"#D2001C",SJS:"#006D75",SJ:"#006D75",SEA:"#001628"};
 var CONF={MTL:"Est",TBL:"Est",BUF:"Est",BOS:"Est",FLA:"Est",TOR:"Est",OTT:"Est",DET:"Est",CAR:"Est",PHI:"Est",PIT:"Est",NJD:"Est",NYR:"Est",NYI:"Est",WSH:"Est",CBJ:"Est",COL:"Ouest",DAL:"Ouest",MIN:"Ouest",WPG:"Ouest",NSH:"Ouest",STL:"Ouest",CHI:"Ouest",VGK:"Ouest",UTA:"Ouest",ANA:"Ouest",EDM:"Ouest",LAK:"Ouest",VAN:"Ouest",CGY:"Ouest",SJS:"Ouest",SEA:"Ouest"};
 function nr(a){return({TB:"TBL",UTAH:"UTA",NJ:"NJD",SJ:"SJS"})[a]||a}
@@ -155,123 +152,17 @@ function fDt(d){return d.getDate()+" "+MO[d.getMonth()]}
 function toTZ(u,z){return new Date(u).toLocaleTimeString("fr-FR",{hour:"2-digit",minute:"2-digit",hour12:false,timeZone:z})}
 function toD(u,z){return new Date(u).toLocaleDateString("en-CA",{timeZone:z})}
 function toFR(u,z){return new Date(u).toLocaleDateString("fr-FR",{day:"numeric",month:"short",timeZone:z})}
-
-// REPLAY CALC (Paris)
 function rpC(u){var s=new Date(u),e=new Date(s.getTime()+3*36e5),cd=new Date(s.getTime()+5*36e5),m=new Date(s);m.setDate(m.getDate()+1);m.setUTCHours(7,0,0,0);var t=new Date(s);t.setDate(t.getDate()+1);t.setUTCHours(13,0,0,0);return{d:toTZ(e.toISOString(),"Europe/Paris"),c:toTZ(cd.toISOString(),"Europe/Paris"),b:toTZ(m.toISOString(),"Europe/Paris"),t:toTZ(t.toISOString(),"Europe/Paris")}}
-
-// ESPN FETCH (10 days)
 var API="https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard";
-async function fetchData(){
-    var dates=[],n=new Date();
-    for(var i=0;i<10;i++){var d=new Date(n);d.setDate(d.getDate()+i);dates.push(d.toISOString().slice(0,10).replace(/-/g,""))}
-    var results=await Promise.all(dates.map(function(dt){return fetch(API+"?dates="+dt).then(function(r){return r.ok?r.json():null}).catch(function(){return null})}));
-    var games=[],sm={};
-    for(var ri=0;ri<results.length;ri++){
-        var data=results[ri];if(!data||!data.events)continue;
-        for(var ei=0;ei<data.events.length;ei++){
-            var ev=data.events[ei],co=ev.competitions&&ev.competitions[0];
-            if(!co||!co.competitors||co.competitors.length!==2)continue;
-            var aw=null,hm=null;
-            for(var ci=0;ci<co.competitors.length;ci++){if(co.competitors[ci].homeAway==="away")aw=co.competitors[ci];else hm=co.competitors[ci]}
-            if(!aw)aw=co.competitors[0];if(!hm)hm=co.competitors[1];
-            var aA=nr(aw.team&&aw.team.abbreviation||"?"),hA=nr(hm.team&&hm.team.abbreviation||"?");
-            var bc=[];
-            if(co.geoBroadcasts)for(var bi=0;bi<co.geoBroadcasts.length;bi++){var bn=co.geoBroadcasts[bi].media&&co.geoBroadcasts[bi].media.shortName;if(bn&&bc.indexOf(bn)===-1)bc.push(bn)}
-            if(co.broadcasts)for(var b2=0;b2<co.broadcasts.length;b2++){var nms=co.broadcasts[b2].names||[];for(var ni=0;ni<nms.length;ni++){if(bc.indexOf(nms[ni])===-1)bc.push(nms[ni])}}
-            var nt=(ev.notes||[]).map(function(x){return x.headline||""}).join(" ");
-            var rd=1;if(/stanley cup final/i.test(nt))rd=4;else if(/conference final/i.test(nt))rd=3;else if(/second round|2nd round/i.test(nt))rd=2;
-            var gnM=nt.match(/game\s*(\d)/i);
-            var st=ev.status&&ev.status.type&&ev.status.type.state||"pre";
-            var aSR=aw.seriesRecord||"",hSR=hm.seriesRecord||"",aW=0,hW=0;
-            if(aSR){var p=aSR.split("-");aW=parseInt(p[0])||0}
-            if(hSR){var p2=hSR.split("-");hW=parseInt(p2[0])||0}
-            games.push({u:ev.date,a:aA,h:hA,as:parseInt(aw.score)||0,hs:parseInt(hm.score)||0,aW:aW,hW:hW,bc:bc,rd:rd,gn:gnM?parseInt(gnM[1]):0,st:st,pr:ev.status&&ev.status.period||0,ck:ev.status&&ev.status.displayClock||""});
-            var sk=[aA,hA].sort().join("-");
-            if(!sm[sk]||games[games.length-1].gn>=(sm[sk].g||0)){
-                sm[sk]={t1:aA<hA?aA:hA,t2:aA<hA?hA:aA,w1:aA<hA?aW:hW,w2:aA<hA?hW:aW,rd:rd,g:games[games.length-1].gn,mtl:aA==="MTL"||hA==="MTL"}}}}
-    return{games:games,sm:sm}}
-
-// ROUND NAV
+async function fetchData(){var dates=[],n=new Date();for(var i=0;i<10;i++){var d=new Date(n);d.setDate(d.getDate()+i);dates.push(d.toISOString().slice(0,10).replace(/-/g,""))}var results=await Promise.all(dates.map(function(dt){return fetch(API+"?dates="+dt).then(function(r){return r.ok?r.json():null}).catch(function(){return null})}));var games=[],sm={};for(var ri=0;ri<results.length;ri++){var data=results[ri];if(!data||!data.events)continue;for(var ei=0;ei<data.events.length;ei++){var ev=data.events[ei],co=ev.competitions&&ev.competitions[0];if(!co||!co.competitors||co.competitors.length!==2)continue;var aw=null,hm=null;for(var ci=0;ci<co.competitors.length;ci++){if(co.competitors[ci].homeAway==="away")aw=co.competitors[ci];else hm=co.competitors[ci]}if(!aw)aw=co.competitors[0];if(!hm)hm=co.competitors[1];var aA=nr(aw.team&&aw.team.abbreviation||"?"),hA=nr(hm.team&&hm.team.abbreviation||"?");var bc=[];if(co.geoBroadcasts)for(var bi=0;bi<co.geoBroadcasts.length;bi++){var bn=co.geoBroadcasts[bi].media&&co.geoBroadcasts[bi].media.shortName;if(bn&&bc.indexOf(bn)===-1)bc.push(bn)}if(co.broadcasts)for(var b2=0;b2<co.broadcasts.length;b2++){var nms=co.broadcasts[b2].names||[];for(var ni=0;ni<nms.length;ni++){if(bc.indexOf(nms[ni])===-1)bc.push(nms[ni])}}var nt=(ev.notes||[]).map(function(x){return x.headline||""}).join(" ");var rd=1;if(/stanley cup final/i.test(nt))rd=4;else if(/conference final/i.test(nt))rd=3;else if(/second round|2nd round/i.test(nt))rd=2;var gnM=nt.match(/game\s*(\d)/i);var st=ev.status&&ev.status.type&&ev.status.type.state||"pre";var aSR=aw.seriesRecord||"",hSR=hm.seriesRecord||"",aW=0,hW=0;if(aSR){var p=aSR.split("-");aW=parseInt(p[0])||0}if(hSR){var p2=hSR.split("-");hW=parseInt(p2[0])||0}games.push({u:ev.date,a:aA,h:hA,as:parseInt(aw.score)||0,hs:parseInt(hm.score)||0,aW:aW,hW:hW,bc:bc,rd:rd,gn:gnM?parseInt(gnM[1]):0,st:st,pr:ev.status&&ev.status.period||0,ck:ev.status&&ev.status.displayClock||""});var sk=[aA,hA].sort().join("-");if(!sm[sk]||games[games.length-1].gn>=(sm[sk].g||0)){sm[sk]={t1:aA<hA?aA:hA,t2:aA<hA?hA:aA,w1:aA<hA?aW:hW,w2:aA<hA?hW:aW,rd:rd,g:games[games.length-1].gn,mtl:aA==="MTL"||hA==="MTL"}}}}return{games:games,sm:sm}}
 function showRound(n){document.querySelectorAll(".rpanel").forEach(function(p){p.classList.remove("show")});document.querySelectorAll(".rtab").forEach(function(t){t.classList.remove("act")});var panel=document.getElementById("rp"+n);if(panel)panel.classList.add("show");var tab=document.getElementById("tab"+n);if(tab)tab.classList.add("act")}
-
-function buildNav(sm){
-    var arr=Object.values(sm),maxR=1;
-    for(var i=0;i<arr.length;i++)if(arr[i].rd>maxR)maxR=arr[i].rd;
-    var nav=document.getElementById("rnav"),h="";
-    var dates=["","~6 mai","~22 mai","~3 juin"];
-    for(var r=1;r<=4;r++){
-        var isCur=r===maxR,isFut=r>maxR;
-        var rs=isCur?'<div class="rs live">En cours</div>':isFut?'<div class="rs">'+dates[r-1]+"</div>":'<div class="rs done">Termin\u00e9</div>';
-        h+='<div class="rtab '+(r===1?"act ":"")+(isCur?"cur ":"")+(isFut?"fut":"")+'" onclick="showRound('+r+')" id="tab'+r+'"><div class="rn">R'+r+'</div><div class="rl">'+RN[r]+"</div>"+rs+"</div>"}
-    nav.innerHTML=h;return maxR}
-
-// SERIES PILLS
-function seriesPill(s){
-    var dn=s.w1===4||s.w2===4,st,sc;
-    if(s.w1===4){st=s.t1+" 4-"+s.w2;sc="w"}else if(s.w2===4){st=s.t2+" 4-"+s.w1;sc="w"}else if(s.w1===s.w2){st=s.w1+"-"+s.w2;sc="t"}else if(s.w1>s.w2){st=s.t1+" "+s.w1+"-"+s.w2;sc="l"}else{st=s.t2+" "+s.w2+"-"+s.w1;sc="l"}
-    return'<div class="sp '+(s.mtl?"mtl":"")+" "+(dn?"dn":"")+'"><div class="sp-h"><span class="sp-c">'+cf(s.t1)+'</span><span class="sp-s '+sc+'">'+st+'</span></div><div class="sp-m"><div class="sp-t"><img src="'+lg(s.t1)+'" onerror="this.style.display='none'"><div class="sp-a" style="color:'+cl(s.t1)+'">'+s.t1+'</div><div class="sp-w">'+[0,1,2,3].map(function(i){return'<div class="wd '+(i<s.w1?"on":"")+'"></div>'}).join("")+'</div></div><div class="sp-v">vs</div><div class="sp-t"><img src="'+lg(s.t2)+'" onerror="this.style.display='none'"><div class="sp-a" style="color:'+cl(s.t2)+'">'+s.t2+'</div><div class="sp-w">'+[0,1,2,3].map(function(i){return'<div class="wd '+(i<s.w2?"on":"")+'"></div>'}).join("")+"</div></div></div></div>"}
-
-function emptyPill(label){
-    return'<div class="sp empty"><div class="sp-h"><span class="sp-c">'+label+'</span><span class="sp-s tbd">\u00c0 venir</span></div><div class="sp-m"><div class="sp-t"><div class="sp-e">?</div><div class="sp-a" style="color:var(--t3)">???</div></div><div class="sp-v">vs</div><div class="sp-t"><div class="sp-e">?</div><div class="sp-a" style="color:var(--t3)">???</div></div></div></div>'}
-
-function buildPanels(sm){
-    var arr=Object.values(sm),el=document.getElementById("panels"),h="";
-    for(var r=1;r<=4;r++){
-        var inR=arr.filter(function(s){return s.rd===r});
-        h+='<div class="rpanel '+(r===1?"show":"")+'" id="rp'+r+'">';
-        if(r===4){h+='<div class="cup">\u1F3C6</div><div class="cup-t" style="text-align:center">Finale de la Coupe Stanley 2026</div><div class="cup-s" style="text-align:center">Champion Est vs Champion Ouest</div>'}
-        if(inR.length){h+='<div class="sr">';for(var i=0;i<inR.length;i++)h+=seriesPill(inR[i]);h+="</div>"}
-        else{h+='<div class="sr">';var cnt=r===1?8:r===2?4:r===3?2:1;for(var j=0;j<cnt;j++)h+=emptyPill(RN[r]);h+="</div>";h+='<div class="empty-msg">Calendrier disponible quand la ronde pr\u00e9c\u00e9dente sera termin\u00e9e.</div>'}
-        h+="</div>"}
-    el.innerHTML=h}
-
-// SCHEDULE
-function buildSchedule(games){
-    var el=document.getElementById("sched");
-    var td=toD(new Date().toISOString(),"America/Montreal");
-    var up=games.filter(function(g){return toD(g.u,"America/Montreal")>=td||g.st==="in"}).sort(function(a,b){return new Date(a.u)-new Date(b.u)});
-    if(!up.length){el.innerHTML='<div class="empty-msg">Aucun match \u00e0 venir dans les 10 prochains jours.</div>';return}
-    var bd={};for(var i=0;i<up.length;i++){var dk=toD(up[i].u,"America/Montreal");if(!bd[dk])bd[dk]=[];bd[dk].push(up[i])}
-    var keys=Object.keys(bd).sort(),h='<div class="sh"><h2>Matchs \u00e0 venir</h2></div>';
-    for(var ki=0;ki<keys.length;ki++){
-        var dk2=keys[ki],dg=bd[dk2],it=dk2===td,d=new Date(dk2+"T12:00:00");
-        h+='<div class="dh"><span class="dh-d">'+fD(d)+'</span><span class="dh-dt">'+fDt(d)+"</span>"+(it?'<span class="tdy">Aujourd\u0027hui</span>':"")+'</div><div class="gs">';
-        dg.sort(function(a,b){return new Date(a.u)-new Date(b.u)});
-        for(var gi=0;gi<dg.length;gi++){
-            var g=dg[gi],il=g.st==="in",ip=g.st==="post";
-            var et=toTZ(g.u,"America/Montreal"),pa=toTZ(g.u,"Europe/Paris");
-            var ed=toD(g.u,"America/Montreal"),pd=toD(g.u,"Europe/Paris"),df=ed!==pd,pl=df?toFR(g.u,"Europe/Paris"):"";
-            var ut=g.bc.map(function(c){return'<span class="tv tv-u">'+c+"</span>"}).join("");
-            var r=rpC(g.u),gni=g.gn?"M"+g.gn:"";
-            var sH="";
-            if(il){sH='<span class="g-lv">DIRECT</span>';if(g.pr)sH+='<div style="font-size:.4rem;color:var(--t2)">P'+g.pr+" "+g.ck+"</div>";sH+='<div class="g-sc">'+g.as+" - "+g.hs+"</div>"}
-            else if(ip){sH='<span class="g-fn">FINAL</span><div class="g-sc">'+g.as+" - "+g.hs+"</div>"}
-            else{sH='<span class="g-pr">\u00c0 venir</span>'}
-            h+='<div class="gc '+(il?"lv":"")+'"><div class="g1"><div class="gmu"><img src="'+lg(g.a)+'" onerror="this.style.display='none'"><span class="ab" style="color:'+cl(g.a)+'">'+g.a+'</span><span class="at">@</span><img src="'+lg(g.h)+'" onerror="this.style.display='none'"><span class="ab" style="color:'+cl(g.h)+'">'+g.h+'</span><span class="gi">'+gni+'</span></div><div class="gtz"><div class="tz tz-e"><div class="lb">Montr\u00e9al</div><div class="tm">'+et+'</div></div><div class="tz tz-p"><div class="lb">Paris</div><div class="tm">'+pa+"</div>"+(df?'<div class="dt">('+pl+")</div>":"")+'</div></div><div class="gst">'+sH+'</div></div><div class="g2"><div class="gs2"><div class="sl">TV Am. du Nord</div><div class="tvt">'+(ut||'<span class="tv tv-u">TBD</span>')+'<span class="tv tv-c">SN</span><span class="tv tv-c">TVAS</span></div></div><div class="gs2"><div class="sl">TV Europe</div><div class="tvt"><span class="tv tv-f">beIN MAX</span><span class="tv tv-f">DAZN</span></div></div><div class="gs2"><div class="sl">Rediff. (h. Paris)</div><div class="rpl"><div class="rp"><span class="rp-t">~'+r.d+'</span>DAZN<span class="tg tg-i">imm\u00e9diat</span></div><div class="rp"><span class="rp-t">~'+r.c+'</span>Condens\u00e9<span class="tg tg-c">~10min</span></div><div class="rp"><span class="rp-t">~'+r.b+'</span>beIN<span class="tg tg-j">J+1</span></div></div></div></div></div>'}
-        h+="</div>"}
-    el.innerHTML=h}
-
-// STATUS
+function buildNav(sm){var arr=Object.values(sm),maxR=1;for(var i=0;i<arr.length;i++)if(arr[i].rd>maxR)maxR=arr[i].rd;var nav=document.getElementById("rnav"),h="";var dates=["","~6 mai","~22 mai","~3 juin"];for(var r=1;r<=4;r++){var isCur=r===maxR,isFut=r>maxR;var rs=isCur?'<div class="rs live">En cours</div>':isFut?'<div class="rs">'+dates[r-1]+'</div>':'<div class="rs done">Termin\u00e9</div>';h+='<div class="rtab '+(r===1?"act ":"")+(isCur?"cur ":"")+(isFut?"fut":"")+'" onclick="showRound('+r+')" id="tab'+r+'"><div class="rn">R'+r+'</div><div class="rl">'+RN[r]+'</div>'+rs+'</div>'}nav.innerHTML=h;return maxR}
+function seriesPill(s){var dn=s.w1===4||s.w2===4,st,sc;if(s.w1===4){st=s.t1+" 4-"+s.w2;sc="w"}else if(s.w2===4){st=s.t2+" 4-"+s.w1;sc="w"}else if(s.w1===s.w2){st=s.w1+"-"+s.w2;sc="t"}else if(s.w1>s.w2){st=s.t1+" "+s.w1+"-"+s.w2;sc="l"}else{st=s.t2+" "+s.w2+"-"+s.w1;sc="l"}return'<div class="sp '+(s.mtl?"mtl":"")+" "+(dn?"dn":"")+'"><div class="sp-h"><span class="sp-c">'+cf(s.t1)+'</span><span class="sp-s '+sc+'">'+st+'</span></div><div class="sp-m"><div class="sp-t"><img src="'+lg(s.t1)+'" onerror="this.style.display=\'none\'"><div class="sp-a" style="color:'+cl(s.t1)+'">'+s.t1+'</div><div class="sp-w">'+[0,1,2,3].map(function(i){return'<div class="wd '+(i<s.w1?"on":"")+'"></div>'}).join("")+'</div></div><div class="sp-v">vs</div><div class="sp-t"><img src="'+lg(s.t2)+'" onerror="this.style.display=\'none\'"><div class="sp-a" style="color:'+cl(s.t2)+'">'+s.t2+'</div><div class="sp-w">'+[0,1,2,3].map(function(i){return'<div class="wd '+(i<s.w2?"on":"")+'"></div>'}).join("")+'</div></div></div></div>'}
+function emptyPill(label){return'<div class="sp empty"><div class="sp-h"><span class="sp-c">'+label+'</span><span class="sp-s tbd">\u00c0 venir</span></div><div class="sp-m"><div class="sp-t"><div class="sp-e">?</div><div class="sp-a" style="color:var(--t3)">???</div></div><div class="sp-v">vs</div><div class="sp-t"><div class="sp-e">?</div><div class="sp-a" style="color:var(--t3)">???</div></div></div></div>'}
+function buildPanels(sm){var arr=Object.values(sm),el=document.getElementById("panels"),h="";for(var r=1;r<=4;r++){var inR=arr.filter(function(s){return s.rd===r});h+='<div class="rpanel '+(r===1?"show":"")+'" id="rp'+r+'">';if(r===4){h+='<div class="cup">&#x1F3C6;</div><div class="cup-t" style="text-align:center">Finale de la Coupe Stanley 2026</div><div class="cup-s" style="text-align:center">Champion Est vs Champion Ouest</div>'}if(inR.length){h+='<div class="sr">';for(var i=0;i<inR.length;i++)h+=seriesPill(inR[i]);h+='</div>'}else{h+='<div class="sr">';var cnt=r===1?8:r===2?4:r===3?2:1;for(var j=0;j<cnt;j++)h+=emptyPill(RN[r]);h+='</div>';h+='<div class="empty-msg">Calendrier disponible quand la ronde pr\u00e9c\u00e9dente sera termin\u00e9e.</div>'}h+='</div>'}el.innerHTML=h}
+function buildSchedule(games){var el=document.getElementById("sched");var td=toD(new Date().toISOString(),"America/Montreal");var up=games.filter(function(g){return toD(g.u,"America/Montreal")>=td||g.st==="in"}).sort(function(a,b){return new Date(a.u)-new Date(b.u)});if(!up.length){el.innerHTML='<div class="empty-msg">Aucun match \u00e0 venir.</div>';return}var bd={};for(var i=0;i<up.length;i++){var dk=toD(up[i].u,"America/Montreal");if(!bd[dk])bd[dk]=[];bd[dk].push(up[i])}var keys=Object.keys(bd).sort(),h='<div class="sh"><h2>Matchs \u00e0 venir</h2></div>';for(var ki=0;ki<keys.length;ki++){var dk2=keys[ki],dg=bd[dk2],it=dk2===td,d=new Date(dk2+"T12:00:00");h+='<div class="dh"><span class="dh-d">'+fD(d)+'</span><span class="dh-dt">'+fDt(d)+'</span>'+(it?'<span class="tdy">Aujourd\'hui</span>':'')+'</div><div class="gs">';dg.sort(function(a,b){return new Date(a.u)-new Date(b.u)});for(var gi=0;gi<dg.length;gi++){var g=dg[gi],il=g.st==="in",ip=g.st==="post";var et=toTZ(g.u,"America/Montreal"),pa=toTZ(g.u,"Europe/Paris");var ed=toD(g.u,"America/Montreal"),pd=toD(g.u,"Europe/Paris"),df=ed!==pd,pl=df?toFR(g.u,"Europe/Paris"):"";var ut=g.bc.map(function(c){return'<span class="tv tv-u">'+c+'</span>'}).join("");var r=rpC(g.u),gni=g.gn?"M"+g.gn:"";var sH="";if(il){sH='<span class="g-lv">DIRECT</span>';if(g.pr)sH+='<div style="font-size:.4rem;color:var(--t2)">P'+g.pr+" "+g.ck+'</div>';sH+='<div class="g-sc">'+g.as+" - "+g.hs+'</div>'}else if(ip){sH='<span class="g-fn">FINAL</span><div class="g-sc">'+g.as+" - "+g.hs+'</div>'}else{sH='<span class="g-pr">\u00c0 venir</span>'}h+='<div class="gc '+(il?"lv":"")+'"><div class="g1"><div class="gmu"><img src="'+lg(g.a)+'" onerror="this.style.display=\'none\'"><span class="ab" style="color:'+cl(g.a)+'">'+g.a+'</span><span class="at">@</span><img src="'+lg(g.h)+'" onerror="this.style.display=\'none\'"><span class="ab" style="color:'+cl(g.h)+'">'+g.h+'</span><span class="gi">'+gni+'</span></div><div class="gtz"><div class="tz tz-e"><div class="lb">Montr\u00e9al</div><div class="tm">'+et+'</div></div><div class="tz tz-p"><div class="lb">Paris</div><div class="tm">'+pa+'</div>'+(df?'<div class="dt">('+pl+')</div>':'')+'</div></div><div class="gst">'+sH+'</div></div><div class="g2"><div class="gs2"><div class="sl">TV Am. du Nord</div><div class="tvt">'+(ut||'<span class="tv tv-u">TBD</span>')+'<span class="tv tv-c">SN</span><span class="tv tv-c">TVAS</span></div></div><div class="gs2"><div class="sl">TV Europe</div><div class="tvt"><span class="tv tv-f">beIN MAX</span><span class="tv tv-f">DAZN</span></div></div><div class="gs2"><div class="sl">Rediff. (h. Paris)</div><div class="rpl"><div class="rp"><span class="rp-t">~'+r.d+'</span>DAZN<span class="tg tg-i">imm\u00e9diat</span></div><div class="rp"><span class="rp-t">~'+r.c+'</span>Condens\u00e9<span class="tg tg-c">~10min</span></div><div class="rp"><span class="rp-t">~'+r.b+'</span>beIN<span class="tg tg-j">J+1</span></div></div></div></div></div>'}h+='</div>'}el.innerHTML=h}
 function sS(c,m){document.getElementById("dd").className="dot "+c;document.getElementById("dt").innerHTML=m}
-
-// INIT
-async function init(){
-    try{
-        sS("ld","Chargement ESPN...");
-        var r=await fetchData();
-        var n=new Date(),ts=n.toLocaleTimeString("fr-CA",{hour:"2-digit",minute:"2-digit",hour12:false,timeZone:"America/Montreal"}),ds=n.toLocaleDateString("fr-CA",{day:"numeric",month:"short",timeZone:"America/Montreal"});
-        if(r.games.length){
-            var maxR=buildNav(r.sm);buildPanels(r.sm);buildSchedule(r.games);
-            sS("ok","Live &#x2713; <b>"+ds+" "+ts+" ET</b> &middot; "+r.games.length+" matchs &middot; "+Object.keys(r.sm).length+" s\u00e9ries")}
-        else{sS("er","Aucun match trouv\u00e9");
-            document.getElementById("rnav").innerHTML="";
-            document.getElementById("panels").innerHTML='<div class="empty-msg">Aucune donn\u00e9e. <a href="https://www.nhl.com/scores" target="_blank" style="color:var(--cy)">nhl.com</a></div>';
-            document.getElementById("sched").innerHTML=""}
-    }catch(e){
-        console.error("[NHL]",e);sS("er","ESPN indisponible &middot; <a href=\"https://www.nhl.com/scores\" target=\"_blank\" style=\"color:var(--cy)\">nhl.com</a>");
-        document.getElementById("rnav").innerHTML="";
-        document.getElementById("panels").innerHTML='<div class="empty-msg">Impossible de charger les donn\u00e9es ESPN. V\u00e9rifiez votre connexion.</div>';
-        document.getElementById("sched").innerHTML=""}}
+async function init(){try{sS("ld","Chargement ESPN...");var r=await fetchData();var n=new Date(),ts=n.toLocaleTimeString("fr-CA",{hour:"2-digit",minute:"2-digit",hour12:false,timeZone:"America/Montreal"}),ds=n.toLocaleDateString("fr-CA",{day:"numeric",month:"short",timeZone:"America/Montreal"});if(r.games.length){var maxR=buildNav(r.sm);buildPanels(r.sm);buildSchedule(r.games);sS("ok","Live &#x2713; <b>"+ds+" "+ts+" ET</b> &middot; "+r.games.length+" matchs")}else{sS("er","Aucun match");document.getElementById("rnav").innerHTML="";document.getElementById("panels").innerHTML='<div class="empty-msg">Aucune donn\u00e9e. <a href="https://www.nhl.com/scores" target="_blank" style="color:var(--cy)">nhl.com</a></div>';document.getElementById("sched").innerHTML=""}}catch(e){console.error("[NHL]",e);sS("er","ESPN indisponible");document.getElementById("rnav").innerHTML="";document.getElementById("panels").innerHTML='<div class="empty-msg">Impossible de charger ESPN. <a href="https://www.nhl.com/scores" target="_blank" style="color:var(--cy)">nhl.com</a></div>';document.getElementById("sched").innerHTML=""}}
 document.addEventListener("DOMContentLoaded",function(){init();setInterval(init,300000)});
 </script>
 </body>
